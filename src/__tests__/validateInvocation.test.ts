@@ -13,7 +13,6 @@ let recording: Recording;
 afterEach(() => {
   recording.stop();
 });
-
 describe('validateInvocation', () => {
   test('should validate if heroku call passes', async () => {
     recording = setupRecording({
@@ -34,7 +33,7 @@ describe('validateInvocation', () => {
     });
 
     await expect(validateInvocation(context)).rejects.toThrow(
-      'Provider API failed at https://api.heroku.com/account: 401 Invalid credentials provided.',
+      'Provider authentication failed at https://api.heroku.com/account: 401 Invalid credentials provided.',
     );
   });
 });
