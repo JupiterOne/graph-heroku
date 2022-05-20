@@ -6,20 +6,23 @@ import {
 } from '@jupiterone/integration-sdk-testing';
 import { HerokuIntegrationConfig } from '../types';
 
-const context = createMockExecutionContext<HerokuIntegrationConfig>();
-
 let recording: Recording;
 
 afterEach(() => {
   recording.stop();
 });
-
 describe('validateInvocation', () => {
   test('should validate if heroku call passes', async () => {
     recording = setupRecording({
       name: 'validate-invocation-pass',
       directory: __dirname,
       redactedRequestHeaders: ['authorization'],
+    });
+
+    const context = createMockExecutionContext<HerokuIntegrationConfig>({
+      instanceConfig: {
+        apiKey: 'test',
+      },
     });
 
     const response = await validateInvocation(context);
@@ -33,8 +36,14 @@ describe('validateInvocation', () => {
       redactedRequestHeaders: ['authorization'],
     });
 
+    const context = createMockExecutionContext<HerokuIntegrationConfig>({
+      instanceConfig: {
+        apiKey: 'test',
+      },
+    });
+
     await expect(validateInvocation(context)).rejects.toThrow(
-      'Provider API failed at https://api.heroku.com/account: 401 Invalid credentials provided.',
+      'Provider authentication failed at https://api.heroku.com/account: 401 Invalid credentials provided.',
     );
   });
 });
