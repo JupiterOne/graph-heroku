@@ -1,8 +1,6 @@
 import {
   IntegrationExecutionContext,
   IntegrationProviderAuthenticationError,
-  IntegrationProviderAuthorizationError,
-  IntegrationValidationError,
 } from '@jupiterone/integration-sdk-core';
 import { HerokuClient } from './heroku';
 import { HerokuIntegrationConfig } from './types';
