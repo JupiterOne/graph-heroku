@@ -14,24 +14,25 @@ import fetchEnterpriseAccounts from './steps/fetch-enterprise-accounts';
 import fetchTeamApps from './steps/fetch-team-apps';
 import { HerokuIntegrationConfig } from './types';
 
-export const invocationConfig: IntegrationInvocationConfig<HerokuIntegrationConfig> = {
-  instanceConfigFields: {
-    apiKey: {
-      type: 'string',
-      mask: true,
+export const invocationConfig: IntegrationInvocationConfig<HerokuIntegrationConfig> =
+  {
+    instanceConfigFields: {
+      apiKey: {
+        type: 'string',
+        mask: true,
+      },
     },
-  },
-  validateInvocation,
-  integrationSteps: [
-    buildAccountToMemberMapping,
-    buildAccountToTeamMapping,
-    buildAppToAddonMapping,
-    buildTeamToAppMapping,
-    buildTeamToMemberMapping,
-    fetchAppAddons,
-    fetchEnterpriseAccountMembers,
-    fetchEnterpriseAccountTeams,
-    fetchEnterpriseAccounts,
-    fetchTeamApps,
-  ],
-};
+    validateInvocation,
+    integrationSteps: [
+      buildAccountToMemberMapping,
+      buildAccountToTeamMapping,
+      buildAppToAddonMapping,
+      buildTeamToAppMapping,
+      buildTeamToMemberMapping,
+      fetchAppAddons,
+      fetchEnterpriseAccountMembers,
+      fetchEnterpriseAccountTeams,
+      fetchEnterpriseAccounts,
+      fetchTeamApps,
+    ],
+  };
