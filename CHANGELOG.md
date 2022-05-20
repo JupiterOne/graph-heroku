@@ -10,6 +10,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+## 2.3.2 - 2022-05-20
+
+### Changed
+
+- `validateInvocation` will now throw `IntegrationProviderAuthenticationError`
+  when the status code is 401 or 403
+
 ## 2.3.1 - 2021-10-04
 
 ### Changed
