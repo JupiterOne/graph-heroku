@@ -6,6 +6,8 @@ import {
 } from '@jupiterone/integration-sdk-testing';
 import { HerokuIntegrationConfig } from '../types';
 
+const context = createMockExecutionContext<HerokuIntegrationConfig>();
+
 let recording: Recording;
 
 afterEach(() => {
@@ -19,12 +21,6 @@ describe('validateInvocation', () => {
       redactedRequestHeaders: ['authorization'],
     });
 
-    const context = createMockExecutionContext<HerokuIntegrationConfig>({
-      instanceConfig: {
-        apiKey: 'test',
-      },
-    });
-
     const response = await validateInvocation(context);
     expect(response).toBe(undefined);
   });
@@ -34,12 +30,6 @@ describe('validateInvocation', () => {
       name: 'validate-invocation-fail',
       directory: __dirname,
       redactedRequestHeaders: ['authorization'],
-    });
-
-    const context = createMockExecutionContext<HerokuIntegrationConfig>({
-      instanceConfig: {
-        apiKey: 'test',
-      },
     });
 
     await expect(validateInvocation(context)).rejects.toThrow(
