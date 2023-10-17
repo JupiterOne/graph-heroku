@@ -1,0 +1,12 @@
+openapi: 3.0.1
+info:
+  title: '@jupiterone/graph-heroku'
+  description: JupiterOne graph converter for Heroku
+  x-cortex-git:
+    github:
+      repository: JupiterOne/graph-heroku
+  x-cortex-owners:
+    - type: group
+      name: JupiterOne/integrations
+  x-cortex-service-groups: tier-4
+  x-cortex-tag: '@jupiterone/graph-heroku'

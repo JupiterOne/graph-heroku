@@ -2,6 +2,10 @@
   "name": "@jupiterone/graph-heroku",
   "version": "2.3.3",
   "description": "JupiterOne graph converter for Heroku",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JupiterOne/graph-heroku"
+  },
   "license": "MPL-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
